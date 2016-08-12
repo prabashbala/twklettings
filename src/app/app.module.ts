@@ -9,11 +9,11 @@ import { MdSidenavModule } from '@angular2-material/sidenav';
 import { MdToolbarModule } from '@angular2-material/toolbar';
 import { MdTabsModule } from '@angular2-material/tabs';
 import { MdIconModule } from '@angular2-material/icon';
-import { SbTabsComponentComponent } from './sb-tabs-component/sb-tabs-component.component';
+import { Tabs,Tab } from './sb-tabs-component/sb-tabs-component.component';
 
 @NgModule({
   declarations: [
-    AppComponent, SbTabsComponentComponent
+    AppComponent, Tabs,Tab
   ],
   imports: [
 	MdButtonModule, 
