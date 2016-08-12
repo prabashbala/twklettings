@@ -1,3 +1,48 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout>
+<md-sidenav #start (open)="mybutton.focus()">
+      <button md-button #mybutton (click)="start.close()">LMS</button><BR/>
+	  <button md-button #mybutton2 (click)="start.close()">Archives</button><BR/>
+	  <button md-button #mybutton3 (click)="start.close()">Pending</button><BR/>
+	  <button md-button #mybutton4 (click)="start.close()">Diary</button>
+    </md-sidenav>
+<md-toolbar color="primary">
+    <button class="app-icon-button" (click)="start.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+
+    Two Weeks Lettings Management
+
+    <span class="app-toolbar-filler"></span>
+  </md-toolbar>
+
+<div class="app-content">
+
+<md-card>
+      <md-tab-group>
+        <md-tab>
+          <template md-tab-label>
+            Your Details
+          </template>
+          <template md-tab-content>
+            <p>First Name:</p><br/>
+			<p>Last Name:</p><br/>
+          </template>
+        </md-tab>
+        <md-tab>
+          <template md-tab-label>
+            Contact Details
+          </template>
+          <template md-tab-content>
+            <p>Door Number:</p><br/>
+			<p>Post Code:</p><br/>
+          </template>
+        </md-tab>
+      </md-tab-group>
+    </md-card>
+    <md-card>
+      <button md-raised-button color="primary">BACK</button>
+      <button md-raised-button color="accent">CONTINUE</button>
+</md-card>
+
+</div>
+</md-sidenav-layout>
