@@ -44,14 +44,17 @@
       <button md-raised-button color="accent">CONTINUE</button>
 </md-card>
 <md-card>
-<tabs>
-  <tab tabTitle="Foo">
-    Content of tab Foo
-  </tab>
-  <tab tabTitle="Bar">
-    Content of tab Bar
-  </tab>
-</tabs>
+
+  <md-tab-group>
+        <md-tab *ngFor="let hero of heroes">
+              <template md-tab-label>
+                {{ hero.name }}
+              </template>
+              <template md-tab-content>
+                {{ hero.name }}
+              </template>
+            </md-tab>        
+      </md-tab-group>
 </md-card>
 
 </div>

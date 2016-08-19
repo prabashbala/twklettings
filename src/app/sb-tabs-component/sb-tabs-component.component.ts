@@ -2,48 +2,40 @@ import { Component, Input } from '@angular/core';
 
 
 @Component({
-  selector: 'tabs',
-  template: `
-    <ul>
-      <li *ngFor="let tab of tabs" (click)="selectTab(tab)">
-        {{tab.tabTitle}}
-      </li>
-    </ul>
-    <ng-content></ng-content>
+    selector: 'tabs',
+    template: `   
+   
+     <md-tab-group>
+        <md-tab *ngFor="let tab of tabs">
+              <template md-tab-label>
+                {{tab.tabTitle}}
+              </template>
+              <template md-tab-content>
+                {{tab.tabTemplate}}
+              </template>
+            </md-tab>        
+      </md-tab-group>
   `,
 })
 export class Tabs {
-  tabs: Tab[] = [];
-
-  selectTab(tab: Tab) {
-    this.tabs.forEach((tab) => {
-      tab.active = false;
-    });
-    tab.active = true;
-  }
-
-  addTab(tab: Tab) {
-    if (this.tabs.length === 0) {
-      tab.active = true;
-    }
-    this.tabs.push(tab);
-  }
+      @Input() tabs:Tab[];
+    
 }
-
-@Component({
-  selector: 'tab',
-  template: `
-    <div [hidden]="!active">
-      <ng-content></ng-content>
-    </div>
-  `
-})
 export class Tab {
 
-   @Input() tabTitle: string;
-    active:boolean;
+    tabindex: number;
+    tabTitle: string;
+    tabTemplate: string;
+    active : boolean;
 
-  constructor(tabs:Tabs) {
-    tabs.addTab(this);
-  }
-}
+    constructor(itabindex: number,
+        itabTitle: string,
+        itabTemplate: string,
+        iactive: boolean) {
+        this.tabindex = itabindex;
+        this.tabTitle = itabTitle;
+        this.tabTemplate = itabTemplate;
+        this.active = iactive;
+    }
+}
+
